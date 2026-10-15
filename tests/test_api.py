@@ -30,3 +30,8 @@ def test_requires_auth_and_crud():
     listed = client.get("/api/v1/entries", headers=auth_header())
     assert listed.status_code == 200
     assert any(row["id"] == item_id for row in listed.json())
+
+
+def test_rejects_garbage_token():
+    response = client.get("/api/v1/entries", headers={"Authorization": "Bearer not-a-jwt"})
+    assert response.status_code == 401
