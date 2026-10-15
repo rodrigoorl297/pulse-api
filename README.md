@@ -10,7 +10,8 @@ FastAPI, SQLAlchemy 2, PyJWT, Pytest, Docker.
 
 ## Setup
 
-Copy `.env.example` to `.env` and set a real `SECRET_KEY`. Do not commit `.env`.
+Copy `.env.example` to `.env` and set a real `SECRET_KEY` (long random string).
+Do not commit `.env`. See `SECURITY.md`.
 
 ```bash
 python -m venv .venv
