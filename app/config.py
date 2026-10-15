@@ -12,7 +12,8 @@ class Settings(BaseSettings):
 
     @property
     def origin_list(self) -> list[str]:
-        return [item.strip() for item in self.cors_origins.split(",") if item.strip()]
+        origins = [item.strip() for item in self.cors_origins.split(",") if item.strip()]
+        return [item for item in origins if item != "*"]
 
 
 settings = Settings()
